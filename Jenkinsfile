@@ -19,7 +19,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Running compile check on app.py..."
-                sh 'python3 -m py_compile app.py'
+                bat 'python -m py_compile app.py'
             }
         }
         
@@ -30,7 +30,7 @@ pipeline {
                 }
                 
                 echo "Deploying to ${params.ENVIRONMENT} environment..."
-                sh 'python3 app.py'
+                bat 'python app.py'
             }
         }
     }
